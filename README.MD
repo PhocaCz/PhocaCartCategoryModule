@@ -1,0 +1,1 @@
+Phoca Cart Category Module is Joomla! CMS extension. Module which displays tree of Phoca Cart categories.
