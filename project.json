@@ -1,0 +1,19 @@
+{
+	"author": "Jan Pavelka (www.phoca.cz)",
+	"authorUrl": "https://www.phoca.cz",
+	"copyright": "Jan Pavelka",
+	"license": "GNU/GPL",
+	"projectName": "PhocaCartCategoryModule",
+	"extensionName": "Phoca Cart Category Module",
+	"projectInitials" : "PC",				  
+	"description": "Phoca Cart Category Module - a Joomla! CMS module which displays tree of Phoca Cart categories in module position.",
+	"projectUrl": "https://www.phoca.cz/phoca-cart-category-module",
+	"projectDocumentationUrl": "https://www.phoca.cz/documentation/category/121-phoca-cart-category-module",
+	"projectMainComponent": "Phoca Cart",
+	"projectMainComponentInfoUrl": "https://www.phoca.cz/project/phocacart-joomla-ecommerce",
+	"projectDemo" : {
+		"Joomla! - Phoca Cart Demo": "https://www.phoca.cz/phocacartdemo/",
+		"Joomla! - Phoca Cart - Phoca Premiere Template Demo": "https://www.phoca.cz/phocacartdemo/premiere/"
+	},
+	"projectColor": "#129ed9"
+}

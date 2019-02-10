@@ -7,30 +7,61 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
  
-defined('_JEXEC') or die('Restricted access');// no direct access
+defined('_JEXEC') or die;// no direct access
 
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
 	$app = JFactory::getApplication();
 	$app->enqueueMessage(JText::_('Phoca Cart Error'), JText::_('Phoca Cart is not installed on your system'), 'error');
 	return;
 }
-if (! class_exists('PhocaCartLoader')) {
+
+JLoader::registerPrefix('Phocacart', JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/phocacart');
+/*
+if (! class_exists('PhocacartLoader')) {
     require_once( JPATH_ADMINISTRATOR.'/components/com_phocacart/libraries/loader.php');
 }
 
 phocacartimport('phocacart.utils.settings');
 phocacartimport('phocacart.category.category');
-phocacartimport('phocacart.path.route');
+phocacartimport('phocacart.path.route');*/
 
-$p['category_ordering']	= $params->get( 'category_ordering', 1 );
+$lang = JFactory::getLanguage();
+//$lang->load('com_phocacart.sys');
+$lang->load('com_phocacart');
 
-$tree 		= PhocaCartCategory::getCategoryTreeFormat($p['category_ordering']);
+JHTML::stylesheet('media/com_phocacart/css/main.css' );
+
+$p['category_ordering']		= $params->get( 'category_ordering', 1 );
+$moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
+
+
+$display_categories = $params->get('display_categories', '');
+$hide_categories 	= $params->get('hide_categories', '');
+
+if (!empty($display_categories)) {
+	$display_categories = implode(',', $display_categories);
+}
+if (!empty($hide_categories)) {
+	$hide_categories = implode(',', $hide_categories);
+}
+
+$filter_language	= $params->get( 'filter_language', 0 );
+$language = '';
+if ($filter_language == 1) {
+	//$lang 		= JFactory::getLanguage();
+	$language	= $lang->getTag();
+}
+
+
+$tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
+
 $document	= JFactory::getDocument();
 JHTML::stylesheet('media/com_phocacart/js/jstree/themes/proton/style.min.css' );
 $document->addScript(JURI::root(true).'/media/com_phocacart/js/jstree/jstree.min.js');
 
 
-$js	  = array();	
+$js	  = array();
+$js[] = ' ';	
 $js[] = 'jQuery(function () {';
 $js[] = '   jQuery("#phjstree").jstree({';
 $js[] = '      "core": {';
@@ -44,7 +75,7 @@ $js[] = '      document.location = data.instance.get_node(data.node, true).child
 $js[] = '   });';
 $js[] = '   ';
 $js[] = '   jQuery("#phjstree").on("changed.jstree", function (e, data) {';
-//$js[] = '      console.log(data.selected);';
+//$js[] = '      con sole.log(data.selected);';
 $js[] = '   });';
 $js[] = '   ';
 $js[] = '   jQuery("button").on("click", function () {';
@@ -53,6 +84,7 @@ $js[] = '      jQuery("#phjstree").jstree("select_node", "child_node_1");';
 $js[] = '      jQuery.jstree.reference("#phjstree").select_node("child_node_1");';
 $js[] = '   });';
 $js[] = '});';
+$js[] = ' ';
 
 $document->addScriptDeclaration(implode("\n", $js));
 
