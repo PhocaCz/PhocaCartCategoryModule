@@ -54,7 +54,7 @@ Phoca Cart Category Module - a Joomla! CMS module which displays tree of Phoca C
 
 ## Version
 
-3.1.7
+3.1.8
 
 
 
