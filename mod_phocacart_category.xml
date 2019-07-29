@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="3">
 	<name>mod_phocacart_category</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>26/05/2019</creationDate>
+	<creationDate>29/07/2019</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>3.2.0</version>
+	<version>3.3.0</version>
 	<description>MOD_PHOCACART_CATEGORY_DESCRIPTION</description>
 	<projectName>PhocaCartCategoryModule</projectName>
 
@@ -25,8 +25,8 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/administrator/components/com_phocacart/models/fields">
-				
-				<field name="category_ordering" type="list" default="1" label="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_ORDERING_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_ORDERING_DESC">
+
+				<field name="ordering" type="list" default="1" label="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_ORDERING_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_ORDERING_DESC">
 	<option value="1">MOD_PHOCACART_CATEGORY_ORDERING_ASC</option>
 	<option value="2">MOD_PHOCACART_CATEGORY_ORDERING_DESC</option>
 	<option value="3">MOD_PHOCACART_CATEGORY_TITLE_ASC</option>
@@ -36,17 +36,17 @@
 </field>
 
 			<field name="display_categories" type="phocacartcategory" section="com_phocacart" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_DESC" multiple="true"/>
-			
+
 			<field name="hide_categories" type="phocacartcategory" section="com_phocacart" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_DESC" multiple="true"/>
-			
+
 			<field name="filter_language" type="radio" class="btn-group btn-group-yesno" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_DESC">
 	<option value="1">MOD_PHOCACART_CATEGORY_YES</option>
 	<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
 </field>
 
 			<field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
-			
-			</fieldset>	
+
+			</fieldset>
 		</fields>
 	</config>
 

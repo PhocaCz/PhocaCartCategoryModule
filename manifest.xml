@@ -4,10 +4,10 @@
 		<description><![CDATA[ Phoca Cart Category Module - a Joomla! CMS module which displays tree of Phoca Cart categories in module position. ]]></description>
 		<element>mod_phocacart_category</element>
 		<type>module</type>
-		<version>3.2.0</version>
-		<infourl title="Phoca Cart Category Module 3.2.0">https://www.phoca.cz/</infourl>
+		<version>3.3.0</version>
+		<infourl title="Phoca Cart Category Module 3.3.0">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCategoryModule/releases/download/3.2.0/mod_phocacart_category_v3.2.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCategoryModule/releases/download/3.3.0/mod_phocacart_category_v3.3.0.zip</downloadurl>
 		</downloads>
 		<tags>
 			<tag>stable</tag>

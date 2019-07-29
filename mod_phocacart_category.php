@@ -6,7 +6,7 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
- 
+
 defined('_JEXEC') or die;// no direct access
 
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
@@ -16,24 +16,19 @@ if (!JComponentHelper::isEnabled('com_phocacart', true)) {
 }
 
 JLoader::registerPrefix('Phocacart', JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/phocacart');
-/*
-if (! class_exists('PhocacartLoader')) {
-    require_once( JPATH_ADMINISTRATOR.'/components/com_phocacart/libraries/loader.php');
-}
-
-phocacartimport('phocacart.utils.settings');
-phocacartimport('phocacart.category.category');
-phocacartimport('phocacart.path.route');*/
 
 $lang = JFactory::getLanguage();
 //$lang->load('com_phocacart.sys');
 $lang->load('com_phocacart');
 
-JHTML::stylesheet('media/com_phocacart/css/main.css' );
+$media = new PhocacartRenderMedia();
+$media->loadBase();
+$media->loadBootstrap();
+$media->loadSpec();
+$s = PhocacartRenderStyle::getStyles();
 
 $p['category_ordering']		= $params->get( 'category_ordering', 1 );
 $moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
-
 
 $display_categories = $params->get('display_categories', '');
 $hide_categories 	= $params->get('hide_categories', '');
@@ -61,7 +56,7 @@ $document->addScript(JURI::root(true).'/media/com_phocacart/js/jstree/jstree.min
 
 
 $js	  = array();
-$js[] = ' ';	
+$js[] = ' ';
 $js[] = 'jQuery(function () {';
 $js[] = '   jQuery("#phjstree").jstree({';
 $js[] = '      "core": {';
