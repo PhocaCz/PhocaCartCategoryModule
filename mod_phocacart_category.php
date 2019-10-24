@@ -51,7 +51,7 @@ if ($filter_language == 1) {
 $tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
 
 $document	= JFactory::getDocument();
-JHTML::stylesheet('media/com_phocacart/js/jstree/themes/proton/style.min.css' );
+JHTML::stylesheet('media/com_phocacart/js/jstree/themes/proton/style.min.css');
 $document->addScript(JURI::root(true).'/media/com_phocacart/js/jstree/jstree.min.js');
 
 
