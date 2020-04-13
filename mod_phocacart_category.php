@@ -9,6 +9,8 @@
 
 defined('_JEXEC') or die;// no direct access
 
+use Joomla\CMS\HTML\HTMLHelper;
+
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
 	$app = JFactory::getApplication();
 	$app->enqueueMessage(JText::_('Phoca Cart Error'), JText::_('Phoca Cart is not installed on your system'), 'error');
@@ -21,11 +23,13 @@ $lang = JFactory::getLanguage();
 //$lang->load('com_phocacart.sys');
 $lang->load('com_phocacart');
 
-$media = new PhocacartRenderMedia();
+$media = PhocacartRenderMedia::getInstance('main');
 $media->loadBase();
 $media->loadBootstrap();
 $media->loadSpec();
+$media->loadJsTree();
 $s = PhocacartRenderStyle::getStyles();
+$document	= JFactory::getDocument();
 
 $p['category_ordering']		= $params->get( 'category_ordering', 1 );
 $moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
@@ -49,11 +53,6 @@ if ($filter_language == 1) {
 
 
 $tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
-
-$document	= JFactory::getDocument();
-JHTML::stylesheet('media/com_phocacart/js/jstree/themes/proton/style.min.css');
-$document->addScript(JURI::root(true).'/media/com_phocacart/js/jstree/jstree.min.js');
-
 
 $js	  = array();
 $js[] = ' ';
