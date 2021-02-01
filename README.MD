@@ -2,7 +2,7 @@
 
 
 
-![Phoca Cart Category Module](https://github.com/PhocaCz/PhocaCartCategoryModule/blob/master/mod_phocacart_category.png)
+![Phoca Cart Category Module](https://github.com/PhocaCz/PhocaCartCategoryModule/blob/master/mod_phocacart_category.png?raw=true)
 
 # Phoca Cart Category Module
 
@@ -56,7 +56,7 @@ Phoca Cart Category Module - a Joomla! CMS module which displays tree of Phoca C
 
 ## Version
 
-3.5.4
+3.5.5
 
 
 

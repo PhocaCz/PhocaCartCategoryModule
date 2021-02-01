@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
 
 echo '<div class="ph-category-module-box'.$moduleclass_sfx .'">';
 if (!empty($tree)) {
-	echo '<div id="phjstree">';
+	echo '<div id="'.$treeId.'">';
 	echo $tree;
 	echo '</div>';
 }

@@ -51,13 +51,13 @@ if ($filter_language == 1) {
 	$language	= $lang->getTag();
 }
 
-
+$treeId = uniqid( "phjstree" );
 $tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
 
 $js	  = array();
 $js[] = ' ';
 $js[] = 'jQuery(function () {';
-$js[] = '   jQuery("#phjstree").jstree({';
+$js[] = '   jQuery("#'.$treeId.'").jstree({';
 $js[] = '      "core": {';
 $js[] = '         "themes": {';
 $js[] = '            "name": "proton",';
@@ -68,19 +68,20 @@ $js[] = '   }).on("select_node.jstree", function (e, data) {';
 $js[] = '      document.location = data.instance.get_node(data.node, true).children("a").attr("href");';
 $js[] = '   });';
 $js[] = '   ';
-$js[] = '   jQuery("#phjstree").on("changed.jstree", function (e, data) {';
+$js[] = '   jQuery("#'.$treeId.'").on("changed.jstree", function (e, data) {';
 //$js[] = '      con sole.log(data.selected);';
 $js[] = '   });';
 $js[] = '   ';
-$js[] = '   jQuery("button").on("click", function () {';
-$js[] = '      jQuery("#phjstree").jstree(true).select_node("child_node_1");';
-$js[] = '      jQuery("#phjstree").jstree("select_node", "child_node_1");';
-$js[] = '      jQuery.jstree.reference("#phjstree").select_node("child_node_1");';
+//$js[] = '   jQuery("button").on("click", function () {';
+$js[] = '   jQuery("#'.$treeId.' button").on("click", function () {';
+$js[] = '      jQuery("#'.$treeId.'").jstree(true).select_node("child_node_1");';
+$js[] = '      jQuery("#'.$treeId.'").jstree("select_node", "child_node_1");';
+$js[] = '      jQuery.jstree.reference("#'.$treeId.'").select_node("child_node_1");';
 $js[] = '   });';
 $js[] = '});';
 $js[] = ' ';
 
 $document->addScriptDeclaration(implode("\n", $js));
 
-require(JModuleHelper::getLayoutPath('mod_phocacart_category'));
+require(JModuleHelper::getLayoutPath('mod_phocacart_category', $params->get('layout', 'default')));
 ?>
