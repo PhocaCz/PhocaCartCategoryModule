@@ -54,6 +54,8 @@ if ($filter_language == 1) {
 $treeId = uniqid( "phjstree" );
 $tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
 
+$tree2 		= PhocacartCategory::getCategoryTreeArray($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
+
 $js	  = array();
 $js[] = ' ';
 $js[] = 'jQuery(function () {';
