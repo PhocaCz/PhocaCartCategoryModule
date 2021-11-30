@@ -9,6 +9,7 @@
 
 defined('_JEXEC') or die;// no direct access
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
@@ -83,7 +84,10 @@ $js[] = '   });';
 $js[] = '});';
 $js[] = ' ';
 
-$document->addScriptDeclaration(implode("\n", $js));
+$app = Factory::getApplication();
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->addInlineScript(implode("\n", $js));
+//$document->addScriptDeclaration(implode("\n", $js));
 
 require(JModuleHelper::getLayoutPath('mod_phocacart_category', $params->get('layout', 'default')));
 ?>
