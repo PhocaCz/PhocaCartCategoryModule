@@ -24,16 +24,29 @@ $lang = JFactory::getLanguage();
 //$lang->load('com_phocacart.sys');
 $lang->load('com_phocacart');
 
+$app = Factory::getApplication();
+$wa  = $app->getDocument()->getWebAssetManager();
+
+$p['category_ordering']		= $params->get( 'category_ordering', 1 );
+$p['simple_layout']			= $params->get( 'simple_layout', 0 );
+$moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
+
 $media = PhocacartRenderMedia::getInstance('main');
 $media->loadBase();
 $media->loadBootstrap();
 $media->loadSpec();
-$media->loadJsTree();
+if ($p['simple_layout']	== 0) {
+	$media->loadJsTree();
+	$format = 'js';
+} else {
+	$wa->registerAndUseStyle('com_phocacart.jstree', 'media/com_phocacart/js/jstree/themes/simple/style.min.css');
+	$format = 'simple';
+}
+
 $s = PhocacartRenderStyle::getStyles();
 $document	= JFactory::getDocument();
 
-$p['category_ordering']		= $params->get( 'category_ordering', 1 );
-$moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
+
 
 $display_categories = $params->get('display_categories', '');
 $hide_categories 	= $params->get('hide_categories', '');
@@ -53,9 +66,12 @@ if ($filter_language == 1) {
 }
 
 $treeId = uniqid( "phjstree" );
-$tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
+$tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language, $format);
 
-$tree2 		= PhocacartCategory::getCategoryTreeArray($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
+//$tree2 		= PhocacartCategory::getCategoryTreeArray($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
+
+
+
 
 $js	  = array();
 $js[] = ' ';
@@ -84,9 +100,10 @@ $js[] = '   });';
 $js[] = '});';
 $js[] = ' ';
 
-$app = Factory::getApplication();
-$wa = $app->getDocument()->getWebAssetManager();
-$wa->addInlineScript(implode("\n", $js));
+if ($p['simple_layout']	== 0) {
+
+	$wa->addInlineScript(implode("\n", $js));
+}
 //$document->addScriptDeclaration(implode("\n", $js));
 
 require(JModuleHelper::getLayoutPath('mod_phocacart_category', $params->get('layout', 'default')));

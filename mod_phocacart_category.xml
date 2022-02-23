@@ -2,7 +2,7 @@
 <extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocacart_category</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>30/11/2021</creationDate>
+	<creationDate>21/02/2022</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
@@ -39,14 +39,19 @@
 
 			<field name="hide_categories" type="phocacartcategory" section="com_phocacart" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_DESC" multiple="true"/>
 
-			<field name="filter_language" type="radio" class="btn-group btn-group-yesno" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_DESC">
-	<option value="1">MOD_PHOCACART_CATEGORY_YES</option>
-	<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
+			<field name="filter_language" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_DESC">
+                	<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
+                <option value="1">MOD_PHOCACART_CATEGORY_YES</option>
+</field>
+
+            <field name="simple_layout" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_SIMPLE_LAYOUT_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_SIMPLE_LAYOUT_DESC">
+                	<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
+                <option value="1">MOD_PHOCACART_CATEGORY_YES</option>
 </field>
 
 			</fieldset>
 			<fieldset name="advanced">
-				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+				<field name="layout" type="modulelayout" class="form-select" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
 				<field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" rows="3"/>
 				<field name="cache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" default="1" filter="integer">
 					<option value="1">JGLOBAL_USE_GLOBAL</option>
