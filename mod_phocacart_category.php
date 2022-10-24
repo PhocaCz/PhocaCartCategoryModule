@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;// no direct access
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Helper\ModuleHelper;
 
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
 	$app = JFactory::getApplication();
@@ -66,7 +66,25 @@ if ($filter_language == 1) {
 }
 
 $treeId = uniqid( "phjstree" );
-$tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language, $format);
+
+$cacheid = md5($module->id . '-' . PhocacartCategory::getActiveCategoryId());
+$cacheparams               = new \stdClass();
+$cacheparams->cachemode    = 'id';
+$cacheparams->class        = '\PhocacartCategory';
+$cacheparams->method       = 'getCategoryTreeFormat';
+$cacheparams->methodparams = [
+	$p['category_ordering'],
+	$display_categories,
+	$hide_categories,
+	array(0 ,1),
+	$language,
+	$format
+];
+$cacheparams->modeparams   = $cacheid;
+
+$tree     = ModuleHelper::moduleCache($module, $params, $cacheparams);
+//$tree 		= PhocacartCategory::getCategoryTreeFormat($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language, $format);
+
 
 //$tree2 		= PhocacartCategory::getCategoryTreeArray($p['category_ordering'], $display_categories, $hide_categories, array(0 ,1), $language);
 
