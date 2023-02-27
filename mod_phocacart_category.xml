@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocacart_category</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>21/02/2022</creationDate>
+	<creationDate>28/02/2023</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>4.0.0</version>
+	<version>4.0.6Beta</version>
 	<description>MOD_PHOCACART_CATEGORY_DESCRIPTION</description>
 	<projectName>PhocaCartCategoryModule</projectName>
 
@@ -27,33 +27,33 @@
 			<fieldset name="basic" addfieldpath="/administrator/components/com_phocacart/models/fields">
 
 				<field name="ordering" type="list" default="1" label="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_ORDERING_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_ORDERING_DESC">
-	<option value="1">MOD_PHOCACART_CATEGORY_ORDERING_ASC</option>
-	<option value="2">MOD_PHOCACART_CATEGORY_ORDERING_DESC</option>
-	<option value="3">MOD_PHOCACART_CATEGORY_TITLE_ASC</option>
-	<option value="4">MOD_PHOCACART_CATEGORY_TITLE_DESC</option>
-	<option value="5">MOD_PHOCACART_CATEGORY_DATE_ASC</option>
-	<option value="6">MOD_PHOCACART_CATEGORY_DATE_DESC</option>
-</field>
+					<option value="1">MOD_PHOCACART_CATEGORY_ORDERING_ASC</option>
+					<option value="2">MOD_PHOCACART_CATEGORY_ORDERING_DESC</option>
+					<option value="3">MOD_PHOCACART_CATEGORY_TITLE_ASC</option>
+					<option value="4">MOD_PHOCACART_CATEGORY_TITLE_DESC</option>
+					<option value="5">MOD_PHOCACART_CATEGORY_DATE_ASC</option>
+					<option value="6">MOD_PHOCACART_CATEGORY_DATE_DESC</option>
+				</field>
 
-			<field name="display_categories" type="phocacartcategory" section="com_phocacart" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_DESC" multiple="true"/>
+				<field name="display_categories" type="phocacartcategory" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_DESC" layout="joomla.form.field.list-fancy-select" multiple="true"/>
 
-			<field name="hide_categories" type="phocacartcategory" section="com_phocacart" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_DESC" multiple="true"/>
+				<field name="hide_categories" type="phocacartcategory" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_HIDE_CATEGORIES_DESC" layout="joomla.form.field.list-fancy-select" multiple="true"/>
 
-			<field name="filter_language" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_DESC">
-                	<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
-                <option value="1">MOD_PHOCACART_CATEGORY_YES</option>
-</field>
+				<field name="filter_language" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_FILTER_LANGUAGE_DESC">
+					<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
+					<option value="1">MOD_PHOCACART_CATEGORY_YES</option>
+				</field>
 
-            <field name="simple_layout" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_SIMPLE_LAYOUT_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_SIMPLE_LAYOUT_DESC">
-                	<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
-                <option value="1">MOD_PHOCACART_CATEGORY_YES</option>
-</field>
-
+				<field name="simple_layout" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_SIMPLE_LAYOUT_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_SIMPLE_LAYOUT_DESC">
+					<option value="0">MOD_PHOCACART_CATEGORY_NO</option>
+					<option value="1">MOD_PHOCACART_CATEGORY_YES</option>
+				</field>
 			</fieldset>
+
 			<fieldset name="advanced">
 				<field name="layout" type="modulelayout" class="form-select" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
 				<field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" rows="3"/>
-				<field name="cache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" default="1" filter="integer">
+				<field name="owncache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" default="1" filter="integer" validate="options">
 					<option value="1">JGLOBAL_USE_GLOBAL</option>
 					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
 				</field>
@@ -61,7 +61,7 @@
 				<field name="cachemode" type="hidden" default="static">
 					<option value="static"/>
 				</field>
-            </fieldset>
+			</fieldset>
 		</fields>
 	</config>
 
