@@ -21,7 +21,7 @@
 		<language tag="en-GB">language/en-GB/en-GB.mod_phocacart_category.ini</language>
 		<language tag="en-GB">language/en-GB/en-GB.mod_phocacart_category.sys.ini</language>
 	</languages>
-	
+
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/administrator/components/com_phocacart/models/fields">
