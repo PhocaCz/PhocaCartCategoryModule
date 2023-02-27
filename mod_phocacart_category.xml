@@ -14,6 +14,7 @@
 	<files>
 		<folder>tmpl</folder>
 		<filename module="mod_phocacart_category">index.html</filename>
+		<filename module="mod_phocacart_category">manifest.xml</filename>
 		<filename module="mod_phocacart_category">mod_phocacart_category.php</filename>
 	</files>
 
@@ -21,7 +22,7 @@
 		<language tag="en-GB">language/en-GB/en-GB.mod_phocacart_category.ini</language>
 		<language tag="en-GB">language/en-GB/en-GB.mod_phocacart_category.sys.ini</language>
 	</languages>
-
+	
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/administrator/components/com_phocacart/models/fields">
