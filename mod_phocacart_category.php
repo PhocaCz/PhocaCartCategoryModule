@@ -29,7 +29,7 @@ $wa  = $app->getDocument()->getWebAssetManager();
 
 $p['category_ordering']		= $params->get( 'category_ordering', 1 );
 $p['simple_layout']			= $params->get( 'simple_layout', 0 );
-$moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
+$moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx', ''), ENT_COMPAT, 'UTF-8');
 
 $media = PhocacartRenderMedia::getInstance('main');
 $media->loadBase();
