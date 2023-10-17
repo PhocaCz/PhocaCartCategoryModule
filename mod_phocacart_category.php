@@ -8,19 +8,20 @@
  */
 
 defined('_JEXEC') or die;// no direct access
-
+use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Helper\ModuleHelper;
 
-if (!JComponentHelper::isEnabled('com_phocacart', true)) {
-	$app = JFactory::getApplication();
-	$app->enqueueMessage(JText::_('Phoca Cart Error'), JText::_('Phoca Cart is not installed on your system'), 'error');
+if (!ComponentHelper::isEnabled('com_phocacart', true)) {
+	$app = Factory::getApplication();
+	$app->enqueueMessage(Text::_('Phoca Cart Error'), Text::_('Phoca Cart is not installed on your system'), 'error');
 	return;
 }
 
 JLoader::registerPrefix('Phocacart', JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/phocacart');
 
-$lang = JFactory::getLanguage();
+$lang = Factory::getLanguage();
 //$lang->load('com_phocacart.sys');
 $lang->load('com_phocacart');
 
@@ -44,7 +45,7 @@ if ($p['simple_layout']	== 0) {
 }
 
 $s = PhocacartRenderStyle::getStyles();
-$document	= JFactory::getDocument();
+$document	= Factory::getDocument();
 
 
 
@@ -61,7 +62,7 @@ if (!empty($hide_categories)) {
 $filter_language	= $params->get( 'filter_language', 0 );
 $language = '';
 if ($filter_language == 1) {
-	//$lang 		= JFactory::getLanguage();
+	//$lang 		= Factory::getLanguage();
 	$language	= $lang->getTag();
 }
 
@@ -124,5 +125,5 @@ if ($p['simple_layout']	== 0) {
 }
 //$document->addScriptDeclaration(implode("\n", $js));
 
-require(JModuleHelper::getLayoutPath('mod_phocacart_category', $params->get('layout', 'default')));
+require(ModuleHelper::getLayoutPath('mod_phocacart_category', $params->get('layout', 'default')));
 ?>
