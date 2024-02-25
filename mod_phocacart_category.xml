@@ -22,7 +22,7 @@
 		<language tag="en-GB">language/en-GB/en-GB.mod_phocacart_category.ini</language>
 		<language tag="en-GB">language/en-GB/en-GB.mod_phocacart_category.sys.ini</language>
 	</languages>
-	
+
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/administrator/components/com_phocacart/models/fields">
@@ -35,6 +35,14 @@
 					<option value="5">MOD_PHOCACART_CATEGORY_DATE_ASC</option>
 					<option value="6">MOD_PHOCACART_CATEGORY_DATE_DESC</option>
 				</field>
+
+				<field name="filter_featured" type="list" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_FILTER_FEATURED_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_FILTER_FEATURED_DESC">
+					<option value="0">MOD_PHOCACART_CATEGORY_FIELD_FILTER_FEATURED_SHOW</option>
+					<option value="1">MOD_PHOCACART_CATEGORY_FIELD_FILTER_FEATURED_HIDE</option>
+					<option value="2">MOD_PHOCACART_CATEGORY_FIELD_FILTER_FEATURED_ONLY</option>
+				</field>
+
+				<field name="category_type" type="PhocaCartContentType" context="category" multiple="true" filter="integer" validate="options" layout="joomla.form.field.list-fancy-select" label="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_TYPE" description="MOD_PHOCACART_CATEGORY_FIELD_CATEGORY_TYPE_DESC"/>
 
 				<field name="display_categories" type="phocacartcategory" default="0" label="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_LABEL" description="MOD_PHOCACART_CATEGORY_FIELD_DISPLAY_CATEGORIES_DESC" layout="joomla.form.field.list-fancy-select" multiple="true"/>
 
@@ -62,7 +70,7 @@
 				<field name="cachemode" type="hidden" default="static">
 					<option value="static"/>
 				</field>
-            </fieldset>
+			</fieldset>
 		</fields>
 	</config>
 
