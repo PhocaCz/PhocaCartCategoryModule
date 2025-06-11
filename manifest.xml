@@ -39,4 +39,24 @@
 		<targetplatform name="joomla" version="4\.*"/>
 		<client>site</client>
 	</update>
+	<update>
+		<name><![CDATA[ Phoca Cart Category Module ]]></name>
+		<description><![CDATA[ Phoca Cart Category Module - a Joomla! CMS module which displays tree of Phoca Cart categories in module position. ]]></description>
+		<element>mod_phocacart_category</element>
+		<type>module</type>
+		<version>5.1.1</version>
+		<infourl title="Phoca Cart Category Module 5.1.1">https://www.phoca.cz/</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCategoryModule/releases/download/5.1.1/mod_phocacart_category_v5.1.1.zip</downloadurl>
+		</downloads>
+		<sha512>f75cdbf83912dde6986a920493531d75898a87c1af6c7f507d50f51bcb65b8efa06a4b3a069136515298a569e1973e15b71243d66fe684a65f4a4938d7f3879d</sha512>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="5\.*"/>
+		<client>site</client>
+	</update>
 </updates>
