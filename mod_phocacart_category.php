@@ -34,17 +34,31 @@ require_once JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/bootstra
 $p['category_ordering']		= $params->get( 'category_ordering', 1 );
 $p['simple_layout']			= $params->get( 'simple_layout', 0 );
 $moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx', ''), ENT_COMPAT, 'UTF-8');
+$layout                     = $params->get('layout', 'default');
+$layoutName                 = str_replace('_:', '', $layout);
 
 $media = PhocacartRenderMedia::getInstance();
 $media->loadBase();
 $media->loadSpec();
 
-if ($p['simple_layout']	== 0) {
-	$media->loadJsTree();
-	$format = 'js';
-} else {
-	$wa->registerAndUseStyle('com_phocacart.jstree', 'media/com_phocacart/js/jstree/themes/simple/style.min.css');
-	$format = 'simple';
+$categoryTreeMethod = 'getCategoryTreeFormat';
+if ($layoutName == 'default') {
+    if ($p['simple_layout'] == 0) {
+        $media->loadJsTree();
+        $format = 'js';
+    } else {
+        $wa->registerAndUseStyle('com_phocacart.jstree', 'media/com_phocacart/js/jstree/themes/simple/style.min.css');
+        $format = 'simple';
+    }
+} else if ($layoutName == 'box') {
+    $wa->registerAndUseStyle('mod_phocacart_category', 'media/mod_phocacart_category/css/style.css');
+    $format = 'simple';
+    $categoryTreeMethod = 'getCategoryTreeArray';
+} else if ($layoutName == 'scroll-box') {
+    $wa->registerAndUseStyle('mod_phocacart_category', 'media/mod_phocacart_category/css/style.css');
+    $wa->registerAndUseStyle('mod_phocacart_category', 'media/mod_phocacart_category/css/style-scroll-box.css');
+    $format = 'simple';
+    $categoryTreeMethod = 'getCategoryTreeArray';
 }
 
 $s = PhocacartRenderStyle::getStyles();
@@ -80,7 +94,7 @@ $cacheid = md5($module->id . '-' . PhocacartCategory::getActiveCategoryId());
 $cacheparams               = new \stdClass();
 $cacheparams->cachemode    = 'id';
 $cacheparams->class        = '\PhocacartCategory';
-$cacheparams->method       = 'getCategoryTreeFormat';
+$cacheparams->method       = $categoryTreeMethod;
 $cacheparams->methodparams = [
   [
 		'ordering' => $p['category_ordering'],
@@ -122,8 +136,38 @@ $js[] = '   });';
 $js[] = '});';
 $js[] = ' ';
 
-if ($p['simple_layout']	== 0) {
-	$wa->addInlineScript(implode("\n", $js));
+if ($layoutName == 'default') {
+    if ($p['simple_layout'] == 0) {
+        $wa->addInlineScript(implode("\n", $js));
+    }
+}
+
+$activeCategories = [];
+if ($layoutName == 'box' || $layoutName == 'scroll-box') {
+
+    // Get active category or categories
+    $option = $app->getInput()->get('option', '', 'string');
+    $view   = $app->getInput()->get('view', '', 'string');
+    $catid  = $app->getInput()->get('catid', '', 'int'); // ID in items view is category id
+    $id     = $app->getInput()->get('id', '', 'int');
+    $c      = $app->getInput()->get('c', '', 'string');// Category ID in items view - filter options (does not work with ajax)
+
+    if ($option == 'com_phocacart' && ($view == 'items' || $view == 'category') && (int)$id > 0) {
+        $activeCategories[0] = (int)$id;
+    }
+
+    if ($option == 'com_phocacart' && $view == 'item' && (int)$catid > 0) {
+        $activeCategories[0] = (int)$catid;
+    }
+
+    // If in filtering only one category is selected, make active the selected category in e.g. tree (not working in ajax)
+    if ($option == 'com_phocacart' && $view == 'items' && $c != '') {
+        $cA = explode(',', $c);
+
+        $activeCategories = array_map(function($cAV) {
+            return (int)$cAV;
+            }, $cA);
+    }
 }
 
 require(ModuleHelper::getLayoutPath('mod_phocacart_category', $params->get('layout', 'default')));

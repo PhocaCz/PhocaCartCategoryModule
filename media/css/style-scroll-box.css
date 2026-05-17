@@ -1,0 +1,119 @@
+.ph-category-module-box.scroll-box {
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+    margin: 1em;
+    margin-top: 2em;
+}
+
+.pcModCategoryScrollBox {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ph-category-scroll-box-wrapper {
+    position: relative;
+    min-width: 0;
+    width: 100%;
+}
+
+.ph-category-scroll-box-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 2em;
+    scroll-behavior: smooth;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.ph-category-scroll-box-container::-webkit-scrollbar {
+    height: 14px;
+}
+
+.ph-category-scroll-box-container::-webkit-scrollbar-track {
+    background-color: #e6e6e6;
+    background-clip: padding-box;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+.ph-category-scroll-box-container::-webkit-scrollbar-thumb {
+    background-color: #222222;
+    background-clip: padding-box;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-radius: 10px;
+}
+
+.ph-category-scroll-box-container::-webkit-scrollbar-thumb:hover,
+.ph-category-scroll-box-container::-webkit-scrollbar-thumb:active {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.ph-category-scroll-box-box {
+    flex: 0 0 290px;
+    height: 330px;
+     background-color: #f5f7f9;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    position: relative;
+    text-decoration: none;
+}
+
+.ph-category-scroll-box-box.ph-active {
+        background-color: #d5d7d9;
+}
+
+.ph-category-scroll-box-label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.75em 1.5em;
+    border-radius: 2em;
+    color: #222222;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 5px 11px rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+
+.ph-category-nav-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    background: rgba(17, 17, 17, 0.8);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.ph-category-nav-btn svg {
+    width: 23px;
+    fill: white;
+}
+
+.ph-category-scroll-box-wrapper:hover .ph-category-nav-btn {
+    opacity: 1;
+}
+
+.ph-category-prev-btn {
+    left: 10px;
+}
+
+.ph-category-next-btn {
+    right: 10px;
+}

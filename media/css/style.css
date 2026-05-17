@@ -1,0 +1,77 @@
+.pcModCategoryBox {
+	padding: 1em;
+}
+
+.pcModCategoryBox ul {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	gap: 0.25em;
+}
+
+.pcModCategoryBox ul li {
+	/*margin: 0.25em;*/
+	list-style-type: none;
+	padding: 0;
+	/*flex: 1;*/
+    flex: 1 1 calc(33.333% - 0.5rem);
+}
+
+.pcModCategoryBox ul li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+	width: 100%;
+    height: 100%;
+}
+
+.pcModCategoryBox ul li.ph-active a {
+	background: rgba(0, 0, 0, 0.08);
+}
+
+.pcModCategoryBox ul li a:hover {
+    border-color: #dadada;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pcModCategoryBox ul li a::after {
+    content: "";
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: 1em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 12 19 12'%3E%3C/polyline%3E%3Cpolyline points='12 5 19 12 12 19'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: transform 0.3s ease-in-out, background-image 0.3s ease-in-out, stroke 0.3s ease-in-out;
+    transform: rotate(-45deg) translateX(4px);
+}
+
+.pcModCategoryBox ul li a:hover::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 12 19 12'%3E%3C/polyline%3E%3Cpolyline points='12 5 19 12 12 19'%3E%3C/polyline%3E%3C/svg%3E");
+    transform: rotate(0deg);
+}
+
+.pcModCategoryBox ul li a .ph-category-box-image {
+	background: #fff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	padding: 2px;
+	margin-right: 1em;
+    display: flex;
+    box-sizing: border-box;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
