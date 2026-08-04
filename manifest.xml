@@ -64,19 +64,19 @@
 		<description><![CDATA[ Phoca Cart Category Module - a Joomla! CMS module which displays tree of Phoca Cart categories in module position. ]]></description>
 		<element>mod_phocacart_category</element>
 		<type>module</type>
-		<version>6.1.0</version>
-		<infourl title="Phoca Cart Category Module 6.1.0">https://www.phoca.cz/</infourl>
+		<version>6.1.6</version>
+		<infourl title="Phoca Cart Category Module 6.1.6">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCategoryModule/releases/download/6.1.0/mod_phocacart_category_v6.1.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCategoryModule/releases/download/6.1.6/mod_phocacart_category_v6.1.6.zip</downloadurl>
 		</downloads>
-		<sha512>7c3319ed19f96669618262a0f05899c60f74edd024f3326b1407ce1949856faea15b6c38ac2c4a63293003d9e0eb4b6ea702a43ecb5d5f9fe4071efa98c3299d</sha512>
+		<sha512>d1d1b5c8494a85bb106c997dd75ca739dc897447c1b1380751044f4cc4966f6a9c12d00b24c81f05f4285579f8af288c5b93d2f6de5994774df7b05ded0e78c2</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
 		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
 		<maintainerurl>https://www.phoca.cz/</maintainerurl>
 		<section>Updates</section>
-		<targetplatform name="joomla" version="(5|6)\.*"/>
+		<targetplatform name="joomla" version="6\.*"/>
 		<client>site</client>
 	</update>
 </updates>
