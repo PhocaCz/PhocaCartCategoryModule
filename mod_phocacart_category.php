@@ -31,7 +31,7 @@ if (!ComponentHelper::isEnabled('com_phocacart', true)) {
 
 require_once JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/bootstrap.php';
 
-$p['category_ordering']		= $params->get( 'category_ordering', 1 );
+$p['category_ordering']		= $params->get( 'ordering', 1 );
 $p['simple_layout']			= $params->get( 'simple_layout', 0 );
 $moduleclass_sfx 			= htmlspecialchars($params->get('moduleclass_sfx', ''), ENT_COMPAT, 'UTF-8');
 $layout                     = $params->get('layout', 'default');
